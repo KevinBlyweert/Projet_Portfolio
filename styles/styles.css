@@ -129,29 +129,22 @@ main{
     position: relative;
     text-align: right;
 }
-.list-event__progress--coloredENG{
+.list-event__progress--colored{
     position: absolute;
     height: 100%;
-    width: 75%;
     background-color: #1bdbbe;
 }
-.list-event__progress--coloredHTML{
-    position: absolute;
-    height: 100%;
+.ENG{
+    width: 80%;
+}
+.HTML{
     width: 60%;
-    background-color: #1bdbbe;
 }
-.list-event__progress--coloredJS{
-    position: absolute;
-    height: 100%;
+.JS{
     width: 0%;
-    background-color: #1bdbbe;
 }
-.list-event__progress--coloredSQL{
-    position: absolute;
-    height: 100%;
-    width: 75%;
-    background-color: #1bdbbe;
+.SQL{
+    width: 80%;
 }
 .event__skillz{
     color: white;
