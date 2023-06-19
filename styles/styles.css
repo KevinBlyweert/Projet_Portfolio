@@ -92,8 +92,6 @@ h1{
     padding-top: 10px;
     padding-bottom: 10px;
 }
-.list-event{
-}
 .list__date-start,.list__date-end,.list__desc{
     text-decoration: underline;
 }
@@ -107,6 +105,53 @@ h1{
     font-weight: 300;
     margin: 4px 0;
     text-align: justify;
+}
+.list-event--skillz{
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.list-event__title--skillz{
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.list-event__progress{
+    background-color: #ccc;
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 50%;
+    height: 100%;
+    position: relative;
+    text-align: right;
+}
+.list-event__progress--coloredENG{
+    position: absolute;
+    height: 100%;
+    width: 75%;
+    background-color: #1bdbbe;
+}
+.list-event__progress--coloredHTML{
+    position: absolute;
+    height: 100%;
+    width: 60%;
+    background-color: #1bdbbe;
+}
+.list-event__progress--coloredJS{
+    position: absolute;
+    height: 100%;
+    width: 0%;
+    background-color: #1bdbbe;
+}
+.list-event__progress--coloredSQL{
+    position: absolute;
+    height: 100%;
+    width: 75%;
+    background-color: #1bdbbe;
+}
+.event__skillz{
+    color: white;
 }
 @media screen and (max-width:768px){
     html,body{
@@ -147,6 +192,21 @@ h1{
     .links-list{
         width: 75%;
         margin: auto;
+    }
+    .list-event__title--skillz{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .list-event__progress{
+        background-color: #ccc;
+        margin-left: 10px;
+        margin-right: 10px;
+        width: 50%;
+        height: 100%;
+        position: relative;
+        text-align: right;
     }
 }
 @media screen and (min-width:1000px){
