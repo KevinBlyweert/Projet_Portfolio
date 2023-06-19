@@ -33,6 +33,9 @@ h1{
     height: 100%;
     width: 100%;
 }
+main{
+    padding-right: 150px;
+}
 .profile span{
     display: block;
     padding-bottom: 1rem;
@@ -212,5 +215,10 @@ h1{
 @media screen and (min-width:1000px){
     .profile{
         padding-right: 5px;
+    }
+}
+@media screen and (max-width:1280px){
+    main{
+        padding-right: 0;
     }
 }
