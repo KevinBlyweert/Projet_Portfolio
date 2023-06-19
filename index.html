@@ -7,39 +7,65 @@
     <title>My portfolio</title>
     <link rel="stylesheet" href="./styles/reset.css">
     <link rel="stylesheet" href="./styles/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <h1 class="header-nom">Kévin BLYWEERT</h1>
+    <header class="profile">
+        <img src="./images/User-Profile-PNG-High-Quality-Image.png" alt="" class="header-img">
         <div class="header-infos">
-            <span class="infos-num">06.00.00.00.00</span>
+            <h1 class="header-nom">Kévin<br>BLYWEERT</h1>
+            <span class="infos-num">06.00.00.00.00</span><br>
             <span class="infos-adress">12 Rue Machin<br>62300 - Lens</span>
+            <span class="infos-email">kevin.blyweert@gmail.com</span>
         </div>
     </header>
     <main>
         <header class="links">
             <ul class="links-list">
-                <li class="links-list__element"><a href="#"></a></li>
-                <li class="links-list__element"><a href="#"></a></li>
-                <li class="links-list__element"><a href="#"></a></li>
+                <li class="links-list__element"><a href="www.linkedin.com/in/k%C33%A9vin-blyweert-127304254"><img src="./images/linkedin_logo.png" alt="logoLinkedIn" class="links-logo"></a></li>
+                <li class="links-list__element"><a href="#"><img src="./images/linkedin_logo.png" alt="" class="links-logo"></a></li>
+                <li class="links-list__element"><a href="#"><img src="./images/linkedin_logo.png" alt="" class="links-logo"></a></li>
             </ul>
         </header>
         <ul class="list-CV">
             <li class="list-element">
-                <h2 class="list-title">Parcours scolaire</h2>
-                <ul class="list">
-                    <li><span class="list__date-start">2008</span> - <span class="list__desc">Baccalauréat Scientifique option S.V.T.</span></li>
-                    <li><span class="list__date-start">2009</span><span class="dash"> - </span><span class="list__date-end">2010</span> - <span class="list__desc">Première année Licence informatique</span></li>
-                    <li><span class="list__date-start">2010</span><span class="dash"> - </span><span class="list__date-end">2012</span> - <span class="list__desc">D.E.U.S.T. Informatique d'Organisation et Systèmes d'Information</span></li>
-                    <li><span class="list__date-start">2023</span><span class="dash"> - </span><span class="list__date-end">en cours</span> - <span class="list__desc">Préparation au Titre Professionnel de Développeur FullStack Web et Web Mobile</span></li>
+                <h2 class="list-title">Parcours scolaire :</h2>
+                <ul class="list-event">
+                    <li><span class="list__date-start">2008</span> - <span class="list__desc">Baccalauréat Scientifique option S.V.T.</span>
+                        <h3 class="list__location">Lycée Jesse de Forest - Avesnes sur Helpe (59)</h3>
+                    </li>
+                    <li><span class="list__date-start">2009</span><span class="dash"> - </span><span class="list__date-end">2010</span> - <span class="list__desc">Première année Licence informatique</span>
+                        <h3 class="list__location">I.S.T.V. Valenciennes (59)</h3>
+                    </li>
+                    <li><span class="list__date-start">2010</span><span class="dash"> - </span><span class="list__date-end">2012</span> - <span class="list__desc">D.E.U.S.T. Informatique d'Organisation et Systèmes d'Information</span>
+                        <h3 class="list__location">I.S.T.V. Valenciennes (59)</h3>
+                    </li>
+                    <li><span class="list__date-start">2023</span><span class="dash"> - </span><span class="list__date-end">en cours</span> - <span class="list__desc">Préparation au Titre Professionnel de Développeur FullStack Web et Web Mobile</span>
+                        <h3 class="list__location">O'Clock</h3>
+                    </li>
                 </ul>
             </li>
             <li class="list-element">
-                <h2 class="list-title">Expériences</h2>
-                <ul class="list">
-                    <li><span class="list__date-start">2012</span><span class="dash"> - </span><span class="list__date-end">2012</span> - <span class="list__desc">Stage de fin d'année</span></li>
-                    <li><span class="list__date-start">2012</span><span class="dash"> - </span><span class="list__date-end">2019</span> - <span class="list__desc">Réceptionnaire en logistique</span></li>
-                    <li><span class="list__date-start">2019</span><span class="dash"> - </span><span class="list__date-end">2023</span> - <span class="list__desc">Agent administratif d'exploitation</span></li>
+                <h2 class="list-title">Expériences professionnelles :</h2>
+                <ul class="list-event">
+                    <li><span class="list__date-start">2012</span><span class="dash"> - </span><span class="list__date-end">2012</span> - <span class="list__desc">Stage de fin d'année</span>
+                        <h3 class="list__location">Bill Mikro - Aix-Noulette (62)</h3>
+                        <p class="list__detail"></p>
+                    </li>
+                    <li><span class="list__date-start">2012</span><span class="dash"> - </span><span class="list__date-end">2013</span> - <span class="list__desc">Développeur d'applications</span>
+                        <h3 class="list__location">SATCOMS - Roeux (62)</h3>
+                        <p class="list__detail"></p>
+                    </li>
+                    <li><span class="list__date-start">2013</span><span class="dash"> - </span><span class="list__date-end">2019</span> - <span class="list__desc">Réceptionnaire en logistique</span>
+                        <h3 class="list__location">ID Logistics - Brebières et Dourges (62)</h3>
+                        <p class="list__detail"></p>
+                    </li>
+                    <li><span class="list__date-start">2019</span><span class="dash"> - </span><span class="list__date-end">2023</span> - <span class="list__desc">Agent administratif d'exploitation</span>
+                        <h3 class="list__location">ID Logistics - Dourges (62)</h3>
+                        <p class="list__detail"></p>
+                    </li>
                 </ul>
             </li>
         </ul>
