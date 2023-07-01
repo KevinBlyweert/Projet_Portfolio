@@ -59,6 +59,15 @@ main{
     justify-content: center;
     align-items: center;
 }
+@keyframes flush{
+    0%{box-shadow: 0 0 0 #000;}
+    50%{box-shadow: 0 0 20px #000;}
+    100%{box-shadow: 0 0 0 #000;}
+}
+.links-list__element img:hover{
+    animation : flush 3s infinite;
+    border-radius: 50%;
+}
 .links-list__element:nth-child(2){
     border-left: 1px solid #ccc;
     border-right: 1px solid #ccc;
@@ -69,19 +78,34 @@ main{
 }
 .profile{
     width: 25%;
-    border-right: 1px solid #aaa;
     position: relative;
     text-align: right;
     padding-top: 150px;
+    background: rgb(255,40,40);
+    background: linear-gradient(90deg, rgba(255,40,40,1) 0%, rgba(255,255,255,1) 50%); 
 }
 .header-nom{
     font-weight: bold;
+}
+.header-nom:hover{
+    animation: shake 750ms 2;
+}
+@keyframes shake{
+    0%{transform: translateX(0);}
+    25%{transform: translateX(10px);}
+    50%{transform: translateX(-10px);}
+    75%{transform: translateX(10px);}
+    100%{transform: translateX(0);}
 }
 .header-img{
     width: 125px;
     position: absolute;
     top: 0;
     right:-20px;
+    transition: all 2s ease-in-out;
+}
+.header-img:hover{
+    rotate: y 360deg;
 }
 .list-CV{
     padding: 20px;
@@ -92,8 +116,14 @@ main{
     box-shadow: 10px 10px 5px #ccc;
     margin-bottom: 25px;
     border-bottom-right-radius: 10px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding: 10px;
+}
+.list-element:nth-child(even){
+    text-align: right;
+    padding-left: 50px;
+}
+.list-element:nth-child(even) p{
+    text-align: right;
 }
 .list__date-start,.list__date-end,.list__desc{
     text-decoration: underline;
@@ -103,7 +133,6 @@ main{
 }
 .list__detail{
     padding-left: 15px;
-    padding-right: 15px;
     font-size: .8rem;
     font-weight: 300;
     margin: 4px 0;
@@ -141,7 +170,7 @@ main{
     width: 60%;
 }
 .JS{
-    width: 0%;
+    width: 20%;
 }
 .SQL{
     width: 80%;
