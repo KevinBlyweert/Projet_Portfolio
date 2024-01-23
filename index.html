@@ -5,36 +5,46 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My portfolio</title>
+    <link rel="icon" href="./images/favicon.ico">
     <link rel="stylesheet" href="./styles/reset.css">
     <link rel="stylesheet" href="./styles/styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Gothic+A1&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
-        <h1 id="title">Bienvenue sur mon C.V.</h1>
-        <p id="time"></p>
+        <a href="">
+            <h1 id="title" order="1"><img src="./images/favicon.ico" alt="favicon"><div><span>K&eacute;vin</span><br><span>BLYWEERT</span></div></h1>
+        </a>
+        <div id="time" order="2"><span id="date"></span><br><span id="hour"></span></div>
+        <nav order="3">
+            <a href="#xp" class="nav_item">Expérience</a>
+            <a href="#scolarship" class="nav_item">Formation</a>
+            <a href="#skills" class="nav_item">Compétences</a>
+            <a href="#achievements" class="nav_item">Réalisations</a>
+            <a href="#contact" class="nav_item">Contact</a>
+        </nav>
     </header>
     <main>
             <ul>
-                <li class="list-element">
-                    <h1 class="list-element_title">Exp&eacute;rience</h1>
+                <li id="xp" class="list-element">
+                    <h1 class="list-element_title">Expérience</h1>
                     <div class="list-element_content content-XP"></div>
                 </li>
-                <li class="list-element">
+                <li id="scolarship" class="list-element">
                     <h1 class="list-element_title">Formation</h1>
                     <div class="list-element_content content-formation"></div>
                 </li>
-                <li class="list-element">
-                    <h1 class="list-element_title">Comp&eacute;tences</h1>
+                <li id="skills" class="list-element">
+                    <h1 class="list-element_title">Compétences</h1>
                     <div class="list-element_content content-skills"></div>
                 </li>
-                <li class="list-element">
-                    <h1 class="list-element_title">R&eacute;alisations</h1>
+                <li id="achievements" class="list-element">
+                    <h1 class="list-element_title">Réalisations</h1>
                     <div class="list-element_content" id="content-achievements"></div>
                 </li>
-                <li class="list-element">
+                <li id="contact" class="list-element">
                     <h1 class="list-element_title">Contact</h1>
                     <div class="list-element_content content-contact"></div>
                 </li>

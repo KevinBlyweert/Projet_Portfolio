@@ -1,12 +1,12 @@
 const listElement = document.querySelectorAll('.list-element');
 
 const app = {
-    openList:(element)=>{
-        element.classList.add('list-element_active');
-    },
-    closeList:(element)=>{
-        element.classList.remove('list-element_active');
-    },
+    // openList:(element)=>{
+    //     element.classList.add('list-element_active');
+    // },
+    // closeList:(element)=>{
+    //     element.classList.remove('list-element_active');
+    // },
     fillExperiencesContent:()=>{
         const contentXP = document.querySelector('.content-XP');
         experiences.forEach((object)=>{
@@ -54,7 +54,7 @@ const app = {
             title.style.textTransform = 'uppercase'
             title.style.textDecoration = 'underline'
             block.appendChild(title);
-            const skillsDetail = document.createElement('div');
+            const skillsDetail = document.createElement('p');
             for (i=0;i<object[key].length;i++){
                 skillsDetail.textContent += object[key][i];
                 if(i<object[key].length-1){skillsDetail.textContent += ', ';}
@@ -81,26 +81,30 @@ const app = {
             const date = new Date();
             const day = `${date.getDate()<10?'0':''}${date.getDate()}`
             const month = `${date.getMonth()+1<10?'0':''}${date.getMonth()+1}`
-            time.textContent = `Aujourd'hui, nous sommes le ${day}/${month}/${date.getFullYear()} et il est ${date.getHours()}h${date.getMinutes()}:${date.getSeconds()}'`;
-        },1000)
+            const hours = `${date.getHours()<10?'0':''}${date.getHours()}`
+            const minutes = `${date.getMinutes()<10?'0':''}${date.getMinutes()}`
+            const seconds = `${date.getSeconds()<10?'0':''}${date.getSeconds()}`
+            time.querySelector('#date').textContent = `${day}/${month}/${date.getFullYear()}`;
+            time.querySelector('#hour').textContent = `${hours}h${minutes}:${seconds}'`;
+        },0)
     },
     init:()=>{
-        listElement.forEach(element => {
-            element.addEventListener('click',(e)=>{
-                if(e.target.closest('.list-element').classList.contains('list-element_active') && e.target.localName != 'div'){
-                    app.closeList(e.target.closest('.list-element'))
-                }else{
-                    listElement.forEach((element)=>{app.closeList(element)});
-                    app.openList(e.target.closest('.list-element'))
-                }
-            })
-        });
+        app.showTime();
+        // listElement.forEach(element => {
+        //     element.addEventListener('click',(e)=>{
+        //         if(e.target.closest('.list-element').classList.contains('list-element_active') && e.target.localName != 'div'){
+        //             app.closeList(e.target.closest('.list-element'))
+        //         }else{
+        //             listElement.forEach((element)=>{app.closeList(element)});
+        //             app.openList(e.target.closest('.list-element'))
+        //         }
+        //     })
+        // });
         app.fillExperiencesContent();
         app.fillFormationContent();
         app.fillSkillsContent();
         app.fillRealisationsContent();
         app.fillContactContent();
-        app.showTime();
     }
 }
 
