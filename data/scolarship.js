@@ -1,4 +1,4 @@
-const scolarship = [
+export const scolarship = [
     {
         "start":"2008",
         "end":null,
