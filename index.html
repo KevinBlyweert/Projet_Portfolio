@@ -19,29 +19,34 @@
         </a>
         <div id="time" order="2"><span id="date"></span><br><span id="hour"></span></div>
         <nav order="3">
-            <a href="#xp" class="nav_item">Expérience</a>
+            <a href="#home" class="nav_item">Accueil</a>
+            <a href="#xp" class="nav_item">Exp&eacute;rience</a>
             <a href="#scolarship" class="nav_item">Formation</a>
-            <a href="#skills" class="nav_item">Compétences</a>
-            <a href="#achievements" class="nav_item">Réalisations</a>
+            <a href="#skills" class="nav_item">Comp&eacute;tences</a>
+            <a href="#achievements" class="nav_item">R&eacute;alisations</a>
             <a href="#contact" class="nav_item">Contact</a>
         </nav>
     </header>
     <main>
             <ul>
+                <li id="home" class="list-element">
+                    <h1 class="list-element_title">Hello !</h1>
+                    <div class="list-element_content" id="content-home"></div>
+                </li>
                 <li id="xp" class="list-element">
-                    <h1 class="list-element_title">Expérience</h1>
-                    <div class="list-element_content content-XP"></div>
+                    <h1 class="list-element_title">Exp&eacute;rience</h1>
+                    <div class="list-element_content" id="content-XP"></div>
                 </li>
                 <li id="scolarship" class="list-element">
                     <h1 class="list-element_title">Formation</h1>
-                    <div class="list-element_content content-formation"></div>
+                    <div class="list-element_content" id="content-formation"></div>
                 </li>
                 <li id="skills" class="list-element">
-                    <h1 class="list-element_title">Compétences</h1>
-                    <div class="list-element_content content-skills"></div>
+                    <h1 class="list-element_title">Comp&eacute;tences</h1>
+                    <div class="list-element_content" id="content-skills"></div>
                 </li>
                 <li id="achievements" class="list-element">
-                    <h1 class="list-element_title">Réalisations</h1>
+                    <h1 class="list-element_title">R&eacute;alisations</h1>
                     <div class="list-element_content" id="content-achievements"></div>
                 </li>
                 <li id="contact" class="list-element">
@@ -50,9 +55,19 @@
                 </li>
             </ul>
     </main>
-    <script src="./data/experiences.js"></script>
-    <script src="./data/scolarship.js"></script>
-    <script src="./data/skills.js"></script>
-    <script src="js/index.js"></script>
+    <div class="modal hidden">
+        <div class="content">
+            <div class="modalHead">
+                <h1 class="modalTitle"></h1>
+                <div class="buttonClose">X</div>
+            </div>
+            <div class="modalContent"></div>
+        </div>
+    </div>
+    <div class="overlay hidden"></div>
+    <!-- <script src="./data/experiences.js"></script> -->
+    <!-- <script src="./data/scolarship.js"></script>
+    <script src="./data/skills.js"></script> -->
+    <script src="js/index.js" type="module"></script>
 </body>
 </html>

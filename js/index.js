@@ -1,14 +1,32 @@
-const listElement = document.querySelectorAll('.list-element');
+import { experiences } from "../data/experiences.js";
+import { scolarship } from "../data/scolarship.js";
+import { skills } from "../data/skills.js";
+import { achievements } from "../data/achievements.js";
+import { RPS } from './rock-paper-scisors.js'
+import { createPlayground } from "./color_tiles.js";
 
 const app = {
-    // openList:(element)=>{
-    //     element.classList.add('list-element_active');
-    // },
-    // closeList:(element)=>{
-    //     element.classList.remove('list-element_active');
-    // },
+    openModal:(event)=>{
+        document.querySelector('.modal').classList.remove('hidden')
+        document.querySelector('.overlay').classList.remove('hidden')
+        document.querySelector('.modalTitle').textContent = event.target.dataset.name;
+        switch (event.target.dataset.name) {
+            case "Color tiles":
+                createPlayground();
+                break;
+            case "Rock Paper Scissors":
+                RPS()
+                break;
+        }
+    },
+    closeModal:()=>{
+        document.querySelector('.modal').classList.add('hidden')
+        document.querySelector('.overlay').classList.add('hidden')
+        document.querySelector('.modalContent').replaceChildren();
+        document.querySelector('.modalContent').className = "modalContent";
+    },
     fillExperiencesContent:()=>{
-        const contentXP = document.querySelector('.content-XP');
+        const contentXP = document.querySelector('#content-XP');
         experiences.forEach((object)=>{
             const block = document.createElement('div')
             contentXP.prepend(block)
@@ -27,7 +45,7 @@ const app = {
         });
     },
     fillFormationContent:()=>{
-        const contentXP = document.querySelector('.content-formation');
+        const contentXP = document.querySelector('#content-formation');
         scolarship.forEach((object)=>{
             const block = document.createElement('div')
             contentXP.prepend(block)
@@ -44,21 +62,21 @@ const app = {
         });
     },
     fillSkillsContent:()=>{
-        const contentSkills = document.querySelector('.content-skills');
+        const contentSkills = document.querySelector('#content-skills');
         skills.forEach((object)=>{
-            for(key of Object.keys(object)){
+            for(let key of Object.keys(object)){
             const block = document.createElement('div')
             contentSkills.appendChild(block)
-            const title = document.createElement('p');
+            const title = document.createElement('div');
             title.textContent = key;
             title.style.textTransform = 'uppercase'
             title.style.textDecoration = 'underline'
             block.appendChild(title);
             const skillsDetail = document.createElement('p');
-            for (i=0;i<object[key].length;i++){
-                skillsDetail.textContent += object[key][i];
-                if(i<object[key].length-1){skillsDetail.textContent += ', ';}
-            }
+            // for (let i=0;i<object[key].length;i++){
+            //     skillsDetail.textContent += object[key][i];
+            //     if(i<object[key].length-1){skillsDetail.textContent += ', ';}
+            // }
             block.appendChild(skillsDetail)
             }
             
@@ -66,10 +84,13 @@ const app = {
     },
     fillRealisationsContent:()=>{
         const contentAchievements = document.querySelector('#content-achievements');
-        for(i = 0; i < 5; i++){
-        const achievements = document.createElement('div');
-        achievements.classList.add('achievements');
-        contentAchievements.append(achievements)
+        for(let i = 0; i < achievements.length; i++){
+            const achievements_block = document.createElement('div');
+            achievements_block.classList.add('achievements');
+            achievements_block.textContent = achievements[i];
+            achievements_block.dataset.name = achievements[i];
+            contentAchievements.append(achievements_block)
+            achievements_block.addEventListener("click",(event)=>{app.openModal(event)})
         }
     },
     fillContactContent:()=>{
@@ -86,25 +107,17 @@ const app = {
             const seconds = `${date.getSeconds()<10?'0':''}${date.getSeconds()}`
             time.querySelector('#date').textContent = `${day}/${month}/${date.getFullYear()}`;
             time.querySelector('#hour').textContent = `${hours}h${minutes}:${seconds}'`;
-        },0)
+        },1000)
     },
     init:()=>{
         app.showTime();
-        // listElement.forEach(element => {
-        //     element.addEventListener('click',(e)=>{
-        //         if(e.target.closest('.list-element').classList.contains('list-element_active') && e.target.localName != 'div'){
-        //             app.closeList(e.target.closest('.list-element'))
-        //         }else{
-        //             listElement.forEach((element)=>{app.closeList(element)});
-        //             app.openList(e.target.closest('.list-element'))
-        //         }
-        //     })
-        // });
         app.fillExperiencesContent();
         app.fillFormationContent();
         app.fillSkillsContent();
         app.fillRealisationsContent();
         app.fillContactContent();
+        document.querySelector('.buttonClose').addEventListener('click',app.closeModal)
+        document.querySelector('.overlay').addEventListener('click',app.closeModal)
     }
 }
 
