@@ -79,6 +79,7 @@ function createList(player) {
         const img = new Image()
         // img.src=`/images/${item}.png`
         img.setAttribute('id',`${item}IMG`); 
+        img.setAttribute('alt',`${item} item image.`); 
         img.dataset.name = item
         elts.append(img)
         elts.addEventListener('click',(event)=>{
