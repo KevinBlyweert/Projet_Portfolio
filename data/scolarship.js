@@ -19,8 +19,8 @@ export const scolarship = [
     },
     {
         "start":"2023",
-        "end":null,
-        "label":"Préparation au Titre Professionnel de Développeur Fullstack Web et Web Mobile",
-        "location":"I.S.T.V. - Valenciennes (59)"
+        "end":"2024",
+        "label":"Préparation au Titre Professionnel de Développeur Fullstack Web et Web Mobile et obtention du Titre Professionnel en Février 2024",
+        "location":"At home"
     }
 ]

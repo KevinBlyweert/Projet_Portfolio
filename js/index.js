@@ -6,7 +6,7 @@ import { RPS } from './rock-paper-scisors.js'
 import { createPlayground } from "./color_tiles.js";
 
 const app = {
-    openModal:(event)=>{
+    openModal: (event) => {
         document.querySelector('.modal').classList.remove('hidden')
         document.querySelector('.overlay').classList.remove('hidden')
         document.querySelector('.modalTitle').textContent = event.target.dataset.name;
@@ -19,15 +19,15 @@ const app = {
                 break;
         }
     },
-    closeModal:()=>{
+    closeModal: () => {
         document.querySelector('.modal').classList.add('hidden')
         document.querySelector('.overlay').classList.add('hidden')
         document.querySelector('.modalContent').replaceChildren();
         document.querySelector('.modalContent').className = "modalContent";
     },
-    fillExperiencesContent:()=>{
+    fillExperiencesContent: () => {
         const contentXP = document.querySelector('#content-XP');
-        experiences.forEach((object)=>{
+        experiences.forEach((object) => {
             const block = document.createElement('div')
             contentXP.prepend(block)
             const when = document.createElement('p');
@@ -44,14 +44,14 @@ const app = {
             block.appendChild(detail);
         });
     },
-    fillFormationContent:()=>{
+    fillFormationContent: () => {
         const contentXP = document.querySelector('#content-formation');
-        scolarship.forEach((object)=>{
+        scolarship.forEach((object) => {
             const block = document.createElement('div')
             contentXP.prepend(block)
             const when = document.createElement('p');
             when.textContent = `Quand? ${object['start']}`;
-            when.textContent += object['end']?` - ${object['end']}`:'';
+            when.textContent += object['end'] ? ` - ${object['end']}` : '';
             block.appendChild(when);
             const what = document.createElement('p');
             what.textContent = `Quoi? ${object['label']}`;
@@ -61,64 +61,74 @@ const app = {
             block.appendChild(where);
         });
     },
-    fillSkillsContent:()=>{
+    fillSkillsContent: () => {
         const contentSkills = document.querySelector('#content-skills');
-        skills.forEach((object)=>{
-            for(let key of Object.keys(object)){
-            const block = document.createElement('div')
-            contentSkills.appendChild(block)
-            const title = document.createElement('div');
-            title.textContent = key;
-            title.style.textTransform = 'uppercase'
-            title.style.textDecoration = 'underline'
-            block.appendChild(title);
-            const skillsDetail = document.createElement('p');
-            // for (let i=0;i<object[key].length;i++){
-            //     skillsDetail.textContent += object[key][i];
-            //     if(i<object[key].length-1){skillsDetail.textContent += ', ';}
-            // }
-            block.appendChild(skillsDetail)
+        skills.forEach((object) => {
+            for (let key of Object.keys(object)) {
+                const block = document.createElement('div')
+                contentSkills.appendChild(block)
+                const title = document.createElement('div');
+                title.textContent = key;
+                title.style.textTransform = 'uppercase'
+                title.style.textDecoration = 'underline'
+                block.appendChild(title);
+                const skillsDetail = document.createElement('p');
+                // for (let i=0;i<object[key].length;i++){
+                //     skillsDetail.textContent += object[key][i];
+                //     if(i<object[key].length-1){skillsDetail.textContent += ', ';}
+                // }
+                block.appendChild(skillsDetail)
             }
-            
+
         });
     },
-    fillRealisationsContent:()=>{
+    fillRealisationsContent: () => {
         const contentAchievements = document.querySelector('#content-achievements');
-        for(let i = 0; i < achievements.length; i++){
+        for (let i = 0; i < achievements.length; i++) {
             const achievements_block = document.createElement('div');
-            achievements_block.classList.add('achievements');
+            achievements_block.classList.add('achievements', achievements[i].replaceAll(" ", ""));
             achievements_block.textContent = achievements[i];
             achievements_block.dataset.name = achievements[i];
             contentAchievements.append(achievements_block)
-            achievements_block.addEventListener("click",(event)=>{app.openModal(event)})
+            achievements_block.addEventListener("click", (event) => { app.openModal(event) })
         }
     },
-    fillContactContent:()=>{
+    fillContactContent: () => {
 
     },
-    showTime:()=>{
+    showTime: () => {
         const time = document.querySelector('#time');
-        setInterval(()=>{
+        setInterval(() => {
             const date = new Date();
-            const day = `${date.getDate()<10?'0':''}${date.getDate()}`
-            const month = `${date.getMonth()+1<10?'0':''}${date.getMonth()+1}`
-            const hours = `${date.getHours()<10?'0':''}${date.getHours()}`
-            const minutes = `${date.getMinutes()<10?'0':''}${date.getMinutes()}`
-            const seconds = `${date.getSeconds()<10?'0':''}${date.getSeconds()}`
+            const day = `${date.getDate() < 10 ? '0' : ''}${date.getDate()}`
+            const month = `${date.getMonth() + 1 < 10 ? '0' : ''}${date.getMonth() + 1}`
+            const hours = `${date.getHours() < 10 ? '0' : ''}${date.getHours()}`
+            const minutes = `${date.getMinutes() < 10 ? '0' : ''}${date.getMinutes()}`
+            const seconds = `${date.getSeconds() < 10 ? '0' : ''}${date.getSeconds()}`
             time.querySelector('#date').textContent = `${day}/${month}/${date.getFullYear()}`;
             time.querySelector('#hour').textContent = `${hours}h${minutes}:${seconds}'`;
-        },1000)
+        }, 1000)
     },
-    init:()=>{
+    inView: (elt) => {
+        const { top } = elt.getBoundingClientRect();
+        const { offsetTop, offsetHeight } = elt.closest('main');
+        return (top > offsetTop && top < offsetTop + (offsetHeight - 50))
+    },
+    init: () => {
         app.showTime();
-        app.fillExperiencesContent();
-        app.fillFormationContent();
-        app.fillSkillsContent();
-        app.fillRealisationsContent();
-        app.fillContactContent();
-        document.querySelector('.buttonClose').addEventListener('click',app.closeModal)
-        document.querySelector('.overlay').addEventListener('click',app.closeModal)
+        // app.fillExperiencesContent();
+        // app.fillFormationContent();
+        // app.fillSkillsContent();
+        // app.fillRealisationsContent();
+        // app.fillContactContent();
+        document.querySelector('.buttonClose').addEventListener('click', app.closeModal)
+        document.querySelector('.overlay').addEventListener('click', app.closeModal)
+        document.querySelector('ul').addEventListener("scroll", (event) => {
+            document.querySelectorAll('.list-element').forEach((e) => {
+                app.inView(e)?document.querySelector(`nav a[href="#${e.id}"]`).classList.add('selected'):document.querySelector(`nav a[href="#${e.id}"]`).classList.remove("selected");
+            })
+        })
     }
 }
 
-window.addEventListener('DOMContentLoaded',app.init);
+window.addEventListener('DOMContentLoaded', app.init);

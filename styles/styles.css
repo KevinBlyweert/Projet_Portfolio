@@ -1,5 +1,215 @@
-*{box-sizing: border-box;}
-html,body{height: 100%; font-family: "Roboto", sans-serif;display: flex;flex-direction: column;}
+:root {
+    --bgc: hsl(234 84% 07%);
+    --txtcolor: #d2d4e9;
+    --html5color: #DD4B25;
+    --css3color: #0975BC;
+    --jscolor: #F7E025;
+    --nodecolor: #58A149;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+    font-family: "Roboto", sans-serif;
+    display: flex;
+    flex-direction: column;
+    overflow-y: hidden;
+    background-color: var(--bgc);
+    color: var(--txtcolor);
+}
+
+body {
+    padding-top: 55px;
+}
+
+a {
+    text-decoration: none;
+
+    &:visited {
+        color: var(--txtcolor);
+    }
+}
+
+header {
+    height: 7%;
+    width: 100%;
+    padding: 5px;
+    box-shadow: 0px 5px 6px #000;
+    top: 0;
+    position: fixed;
+
+    #headTitle {
+        #title {
+            display: flex;
+            align-items: end;
+
+            img {
+                height: 45px;
+            }
+
+            span {
+                margin-left: 30px;
+                font-size: 2em;
+                text-align: end;
+                color: var(--txtcolor);
+            }
+
+            font-family: "Calligraffitti",
+            cursive;
+        }
+    }
+
+    nav {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 7%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-evenly;
+        font-size: .7em;
+        background-color: #1B1F23;
+
+        a {
+            display: flex;
+            flex-direction: column;
+            max-width: calc(100% / 6);
+            align-items: center;
+            gap: 5px;
+
+            i {
+                font-size: 2em;
+            }
+
+            &:hover {
+                filter: invert(80%) sepia(15%) saturate(249%) hue-rotate(197deg) brightness(109%) contrast(83%);
+                transform: translateY(3px);
+            }
+
+            &.selected {
+                filter: invert(87%) sepia(8%) saturate(905%) hue-rotate(144deg) brightness(105%) contrast(104%);
+                transform: translateY(3px);
+            }
+        }
+
+    }
+
+}
+
+main {
+    height: 86vh;
+    padding: 10px;
+
+    ul {
+        scroll-behavior: smooth;
+        overflow-y: auto;
+        scroll-snap-type: y mandatory;
+        height: 100%;
+
+        li {
+            scroll-snap-align: start;
+            height: 100%;
+
+            &#home {
+                display: flex;
+                flex-direction: column;
+                justify-content: end;
+                align-items: end;
+                gap: 15px;
+
+                h1 {
+                    display: flex;
+                    flex-direction: column;
+                    height: 10%;
+                    justify-content: end;
+                    width: 100%;
+                    align-items: end;
+                    font-weight: bold;
+                    font-size: larger;
+
+                    #FS {
+                        background: linear-gradient(135deg, var(--html5color) 24%, transparent 24%, transparent 25%, var(--css3color) 25%, var(--css3color) 49%, transparent 49%, transparent 50%, var(--jscolor) 50%, var(--jscolor) 74%, transparent 74%, transparent 75%, var(--nodecolor) 75%);
+                        background-clip: text;
+                        -webkit-background-clip: text;
+                        color: transparent;
+                        -webkit-text-fill-color: transparent;
+                    }
+
+                    #JS {
+                        color: var(--jscolor);
+                    }
+
+                }
+
+                div {
+                    height: 90%;
+                    width: 100%;
+                    background-color: rgba(255, 255, 255, .2);
+                    border-radius: 15px;
+                    padding: 10px;
+
+                    .anim {
+                        margin: auto;
+                        text-align: justify;
+                        font-family: 'Courier New', Courier, monospace;
+                        background: linear-gradient(var(--txtcolor) 0 0) 0 0;
+                        background-size: calc(var(--n) * 1ch) 200%;
+                        background-repeat: no-repeat;
+                        animation: typing calc(var(--n) * .05s) linear infinite;
+                        color: #0000;
+                        -webkit-background-clip: text;
+                        background-clip: text;
+                        animation-timing-function: steps(var(--n));
+
+                        strong {
+                            font-weight: bolder;text-align: center;
+                        }
+
+                        a {
+                            color: transparent;
+                        }
+                    }
+
+
+                }
+            }
+        }
+    }
+}
+
+/* The typing effect */
+@keyframes typing {
+    from {
+        background-size: 0 200%
+    }
+}
+
+#time {
+    position: fixed;
+    right: 0;
+    top: 0;
+    height: 55px;
+    width: 110px;
+    font-weight: bold;
+    font-size: 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.ext_link {
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, .3);
+}
+
+/*html,body{height: 100%; font-family: "Roboto", sans-serif;display: flex;flex-direction: column;}
 a{color: inherit;text-decoration: none;top: 1px;}
 header{
     padding: 15px 5px;
@@ -30,7 +240,7 @@ ul{width: 100vw;height: 100%;display:flex;flex-direction: row;scroll-behavior: s
     transition: transform 0.5s;
     position: relative;
     
-    color:000;
+    color:#000;
     display: flex;
     flex-direction: column;
     padding: 0px 10px;
@@ -46,8 +256,8 @@ ul{width: 100vw;height: 100%;display:flex;flex-direction: row;scroll-behavior: s
 #content-XP div:nth-child(even),#content-formation div:nth-child(even){text-align: right;}
 #content-skills{flex-direction: column;justify-content: space-between;align-content: space-between;}
 #content-skills>*:last-child{display: flex; justify-content: end;}
-#content-achievements{flex-direction: row;flex-wrap: wrap;gap:0px;height: fit-content;}
-.achievements{border: 1px solid black; background-color: #fff;width: calc(100% / 3);height:calc(100% / 3 / ( 16 / 9 ));font-weight: bold;font-size: 2em;text-align: center;margin: auto;display: flex;flex-direction: column;justify-content: center;}
+#content-achievements{flex-direction: column;flex-wrap: wrap;gap:0px;height: fit-content;}
+.achievements{border: 1px solid black; background-color: #fff;width: 75%;height:calc(100% / 3 / ( 16 / 9 ));font-weight: bold;font-size: 2em;text-align: center;margin: auto;display: flex;flex-direction: column;justify-content: center;}
 .modal{
     display: flex;
     flex-direction: column;
@@ -86,13 +296,13 @@ ul{width: 100vw;height: 100%;display:flex;flex-direction: row;scroll-behavior: s
                 li{max-height: 32%;}
                 img{max-width: 50%;max-height: 100%;
                     &#PaperIMG{
-                        content: url("/images/Paper.png");
+                        content: url("../images/Paper.png");
                     }
                     &#ScissorsIMG{
-                        content: url("/images/Scissors.png");
+                        content: url("../images/Scissors.png");
                     }
                     &#RockIMG{
-                        content: url("/images/Rock.png");
+                        content: url("../images/Rock.png");
                     }
                 }
                 &.player{
@@ -127,11 +337,12 @@ ul{width: 100vw;height: 100%;display:flex;flex-direction: row;scroll-behavior: s
     background: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(3px);
     z-index: 1;
-}
-.hidden{
+}*/
+.hidden {
     display: none;
 }
 
+/*
 @media screen and (min-width:820px){
     #title{order:1;flex-grow: 1;justify-content: end;}
     #time{order:3;flex-grow: 1;justify-content: start;}
@@ -142,4 +353,4 @@ ul{width: 100vw;height: 100%;display:flex;flex-direction: row;scroll-behavior: s
     ul{width: 75vw;}
     .list-element{width: 75vw;}
     .list-element_content{padding: 50px;}
-}
+} */

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,52 +9,70 @@
     <link rel="icon" href="./images/favicon.ico">
     <link rel="stylesheet" href="./styles/reset.css">
     <link rel="stylesheet" href="./styles/styles.css">
+    <script src="https://kit.fontawesome.com/cb84e3d815.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Calligraffitti&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
     <header>
-        <a href="">
-            <h1 id="title" order="1"><img src="./images/favicon.ico" alt="favicon"><div><span>K&eacute;vin</span><br><span>BLYWEERT</span></div></h1>
-        </a>
-        <div id="time" order="2"><span id="date"></span><br><span id="hour"></span></div>
-        <nav order="3">
-            <a href="#home" class="nav_item">Accueil</a>
-            <a href="#xp" class="nav_item">Exp&eacute;rience</a>
-            <a href="#scolarship" class="nav_item">Formation</a>
-            <a href="#skills" class="nav_item">Comp&eacute;tences</a>
-            <a href="#achievements" class="nav_item">R&eacute;alisations</a>
-            <a href="#contact" class="nav_item">Contact</a>
+        <div id="headTitle">
+            <a href="">
+                <h1 id="title"><img src="./images/favicon.ico" alt="favicon"><span>Hello there...</span>
+                </h1>
+            </a>
+        </div>
+        <nav>
+            <a href="#home" class="nav_item selected"><span>Accueil</span><i class="fa-solid fa-house-chimney"></i></a>
+            <a href="#xp" class="nav_item"><span>Exp&eacute;rience</span><i class="fa-solid fa-briefcase"></i></a>
+            <a href="#scolarship" class="nav_item"><span>Formation</span><i class="fa-solid fa-graduation-cap"></i></a>
+            <a href="#skills" class="nav_item"><span>Comp&eacute;tences</span><i class="fa-solid fa-gears"></i></a>
+            <a href="#achievements" class="nav_item"><span>R&eacute;alisations</span><i
+                    class="fa-solid fa-code"></i></a>
+            <a href="#contact" class="nav_item"><span>Contact</span><i class="fa-solid fa-paper-plane"></i></a>
         </nav>
     </header>
     <main>
-            <ul>
-                <li id="home" class="list-element">
-                    <h1 class="list-element_title">Hello !</h1>
-                    <div class="list-element_content" id="content-home"></div>
-                </li>
-                <li id="xp" class="list-element">
-                    <h1 class="list-element_title">Exp&eacute;rience</h1>
-                    <div class="list-element_content" id="content-XP"></div>
-                </li>
-                <li id="scolarship" class="list-element">
-                    <h1 class="list-element_title">Formation</h1>
-                    <div class="list-element_content" id="content-formation"></div>
-                </li>
-                <li id="skills" class="list-element">
-                    <h1 class="list-element_title">Comp&eacute;tences</h1>
-                    <div class="list-element_content" id="content-skills"></div>
-                </li>
-                <li id="achievements" class="list-element">
-                    <h1 class="list-element_title">R&eacute;alisations</h1>
-                    <div class="list-element_content" id="content-achievements"></div>
-                </li>
-                <li id="contact" class="list-element">
-                    <h1 class="list-element_title">Contact</h1>
-                    <div class="list-element_content content-contact"></div>
-                </li>
-            </ul>
+        <ul>
+            <li id="home" class="list-element">
+                <h1 class="list-element_title">Développeur Web <span id="FS">Fullstack</span> <span
+                        id="JS">JavaScript</span></h1>
+                <div class="list-element_content" id="content-home">
+                    <span class="anim" style="--n:515;">Déjà possesseur d'un DEUST IOSI, j'ai choisi, après 10 ans
+                        passés en logistique,
+                        de retourner dans la programmation et devenir développeur web.<br>
+                        Mon expérience en tant qu'interlocuteur unique de 350 fournisseurs pour toute question
+                        concernant l'activité m'a permis de développer mon relationnel, mon anglais et ma capacité à
+                        être efficace en toute circonstance.<br>
+                        J'ai décidé de suivre la formation dispensée par <a href="https://oclock.io/">O'Clock</a> afin de préparer le Titre Professionnel DWWM.<br><br>
+                        Ce titre en poche, je suis désormais un <strong>développeur web certifié</strong>.
+                    </span>
+                </div>
+            </li>
+            <li id="xp" class="list-element">
+                <h1 class="list-element_title">Mon exp&eacute;rience</h1>
+                <div class="list-element_content" id="content-XP"></div>
+            </li>
+            <li id="scolarship" class="list-element">
+                <h1 class="list-element_title">Ma formation</h1>
+                <div class="list-element_content" id="content-formation"></div>
+            </li>
+            <li id="skills" class="list-element">
+                <h1 class="list-element_title">Mes comp&eacute;tences</h1>
+                <div class="list-element_content" id="content-skills"></div>
+            </li>
+            <li id="achievements" class="list-element">
+                <h1 class="list-element_title">Quelques r&eacute;alisations</h1>
+                <div class="list-element_content" id="content-achievements"></div>
+            </li>
+            <li id="contact" class="list-element">
+                <h1 class="list-element_title">&Ccedil;a vous a plu? Contactez-moi!</h1>
+                <div class="list-element_content content-contact"></div>
+            </li>
+        </ul>
     </main>
     <div class="modal hidden">
         <div class="content">
@@ -64,10 +83,14 @@
             <div class="modalContent"></div>
         </div>
     </div>
+    <footer>
+        <div id="time" order="2"><span id="date"></span><br><span id="hour"></span></div>
+    </footer>
     <div class="overlay hidden"></div>
     <!-- <script src="./data/experiences.js"></script> -->
     <!-- <script src="./data/scolarship.js"></script>
     <script src="./data/skills.js"></script> -->
     <script src="js/index.js" type="module"></script>
 </body>
+
 </html>
