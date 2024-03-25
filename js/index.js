@@ -27,8 +27,22 @@ const app = {
     },
     dragElement: (elmnt) => {
         var axis = document.getElementById("axis"), pos2 = 0, pos4 = 0;
+        var iClickOffsetY = 0;
         elmnt.onmousedown = dragMouseDown;
+        elmnt.ontouchstart = function (e) {
+            iClickOffsetY = e.targetTouches[0].pageY - pos2;
+        };
+        elmnt.ontouchmove = function (e) {
+            e.preventDefault();
+            var curY = e.targetTouches[0].pageY - iClickOffsetY;
 
+            var o = e.targetTouches[0].target;
+            o.style.top = curY + 'px';
+            if (document.getElementById("backpack").offsetTop >= (axis.offsetTop - 10) && document.getElementById("backpack").offsetTop <= (axis.offsetTop + axis.offsetHeight)) { o.style.top = (document.getElementById("backpack").offsetTop - pos2) + "px"; }
+            if (document.getElementById("backpack").offsetTop < (axis.offsetTop - 10)) { o.style.top = (axis.offsetTop - 9) + "px"; }
+            if (document.getElementById("backpack").offsetTop > (axis.offsetTop + (axis.offsetHeight - 48))) { o.style.top = (axis.offsetTop + (axis.offsetHeight - 48)) + "px"; }
+            showXpBlock()
+        };
         function dragMouseDown(e) {
             e = e || window.event;
             e.preventDefault();
