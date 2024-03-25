@@ -25,11 +25,86 @@ const app = {
         document.querySelector('.modalContent').replaceChildren();
         document.querySelector('.modalContent').className = "modalContent";
     },
+    dragElement: (elmnt) => {
+        var axis = document.getElementById("axis"), pos2 = 0, pos4 = 0;
+        elmnt.onmousedown = dragMouseDown;
+
+        function dragMouseDown(e) {
+            e = e || window.event;
+            e.preventDefault();
+            // get the mouse cursor position at startup:
+            pos4 = e.clientY;
+            document.onmouseup = closeDragElement;
+            // call a function whenever the cursor moves:
+            document.onmousemove = elementDrag;
+        }
+
+        function elementDrag(e) {
+            e = e || window.event;
+            e.preventDefault();
+            // calculate the new cursor position:
+            pos2 = pos4 - e.clientY;
+            pos4 = e.clientY;
+            // set the element's new position:
+            if (document.getElementById("backpack").offsetTop >= (axis.offsetTop - 10) && document.getElementById("backpack").offsetTop <= (axis.offsetTop + axis.offsetHeight)) { elmnt.style.top = (elmnt.offsetTop - pos2) + "px"; }
+            if (document.getElementById("backpack").offsetTop < (axis.offsetTop - 10)) { elmnt.style.top = (axis.offsetTop - 9) + "px"; }
+            if (document.getElementById("backpack").offsetTop > (axis.offsetTop + (axis.offsetHeight - 48))) { elmnt.style.top = (axis.offsetTop + (axis.offsetHeight - 48)) + "px"; }
+            showXpBlock();
+        }
+
+        function closeDragElement() {
+            /* stop moving when mouse button is released:*/
+            document.onmouseup = null;
+            document.onmousemove = null;
+        }
+
+        function showXpBlock() {
+            const xpBlocks = document.querySelectorAll(".xpBlock");
+            let elementToAppear = 0, imgSrc = "./images/backpack_s.png";
+            const level = (elmnt.offsetTop * 100) / axis.offsetHeight
+            switch (true) {
+                case (Math.floor(level) > 90):
+                    document.querySelector(".finalBlock").classList.remove("hidden")
+                    imgSrc = "./images/backpack_xl.png"
+                    break;
+                case (Math.floor(level) > 60):
+                    elementToAppear = 3;
+                    imgSrc = "./images/backpack_xl.png"
+                    break;
+                case (Math.floor(level) > 40):
+                    elementToAppear = 2;
+                    imgSrc = "./images/backpack_l.png"
+                    break;
+                case (Math.floor(level) > 20):
+                    elementToAppear = 1;
+                    imgSrc = "./images/backpack_m.png"
+                    break;
+                case (Math.floor(level) > 0):
+                    elementToAppear = 0;
+                    imgSrc = "./images/backpack_s.png"
+                    break;
+                default:
+                    break;
+            }
+            xpBlocks[elementToAppear].classList.remove("hidden")
+            document.querySelector("#backpack").src = imgSrc
+        }
+    },
     fillExperiencesContent: () => {
         const contentXP = document.querySelector('#content-XP');
         experiences.forEach((object) => {
+            const xpBlock = document.createElement('div');
+            xpBlock.classList.add("xpBlock", "hidden");
+            contentXP.append(xpBlock)
+            const blockTitle = document.createElement('div')
+            blockTitle.textContent = `${object['label']} (${object['start']})`;
+            blockTitle.classList.add("xpTitle");
+            xpBlock.append(blockTitle)
+            const buttonDetail = document.createElement("i");
+            buttonDetail.classList.add("fa-regular", "fa-circle-question");
+            blockTitle.append(buttonDetail)
             const block = document.createElement('div')
-            contentXP.prepend(block)
+            block.classList.add("xpDetail", "hidden");
             const when = document.createElement('p');
             when.textContent = `Quand? ${object['start']} - ${object['end']}`;
             block.appendChild(when);
@@ -42,7 +117,18 @@ const app = {
             const detail = document.createElement('p');
             detail.textContent = `Pourquoi? ${object['detail']}`;
             block.appendChild(detail);
+            blockTitle.append(block)
+            buttonDetail.addEventListener("mouseenter", () => {
+                block.classList.toggle("hidden");
+            })
+            buttonDetail.addEventListener("mouseleave", () => {
+                block.classList.toggle("hidden");
+            })
         });
+        const finalBlock = document.createElement("div");
+        finalBlock.textContent = "Votre entreprise ?"
+        finalBlock.classList.add("finalBlock", "hidden")
+        contentXP.append(finalBlock)
     },
     fillFormationContent: () => {
         const contentXP = document.querySelector('#content-formation');
@@ -116,7 +202,8 @@ const app = {
     },
     init: () => {
         app.showTime();
-        // app.fillExperiencesContent();
+        app.dragElement(document.getElementById('backpack'));
+        app.fillExperiencesContent();
         // app.fillFormationContent();
         // app.fillSkillsContent();
         // app.fillRealisationsContent();
@@ -125,7 +212,7 @@ const app = {
         document.querySelector('.overlay').addEventListener('click', app.closeModal)
         document.querySelector('ul').addEventListener("scroll", (event) => {
             document.querySelectorAll('.list-element').forEach((e) => {
-                app.inView(e)?document.querySelector(`nav a[href="#${e.id}"]`).classList.add('selected'):document.querySelector(`nav a[href="#${e.id}"]`).classList.remove("selected");
+                app.inView(e) ? document.querySelector(`nav a[href="#${e.id}"]`).classList.add('selected') : document.querySelector(`nav a[href="#${e.id}"]`).classList.remove("selected");
             })
         })
     }

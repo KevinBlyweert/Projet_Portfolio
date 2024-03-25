@@ -1,5 +1,8 @@
+/* @import url("slider.css"); */
+
 :root {
     --bgc: hsl(234 84% 07%);
+    --myblue: #209CEE;
     --txtcolor: #d2d4e9;
     --html5color: #DD4B25;
     --css3color: #0975BC;
@@ -28,7 +31,6 @@ body {
 
 a {
     text-decoration: none;
-
     &:visited {
         color: var(--txtcolor);
     }
@@ -82,24 +84,30 @@ header {
             max-width: calc(100% / 6);
             align-items: center;
             gap: 5px;
+            border-radius: 5px;
+            border: 1px solid black;
+            border-bottom: 4px solid black;
+            padding: 2px;
+            font-size: .6rem;
+            box-shadow: inset white 15px;
 
             i {
                 font-size: 2em;
             }
 
             &:hover {
-                filter: invert(80%) sepia(15%) saturate(249%) hue-rotate(197deg) brightness(109%) contrast(83%);
                 transform: translateY(3px);
+                height: 94%;
+                border-bottom: 1px solid black;
             }
 
             &.selected {
-                filter: invert(87%) sepia(8%) saturate(905%) hue-rotate(144deg) brightness(105%) contrast(104%);
                 transform: translateY(3px);
+                height: 94%;
+                border-bottom: 1px solid black;
             }
         }
-
     }
-
 }
 
 main {
@@ -116,67 +124,149 @@ main {
             scroll-snap-align: start;
             height: 100%;
 
-            &#home {
+
+            display: flex;
+            flex-direction: column;
+            justify-content: end;
+            align-items: end;
+            gap: 15px;
+
+            h1 {
                 display: flex;
                 flex-direction: column;
+                height: 10%;
                 justify-content: end;
+                width: 100%;
                 align-items: end;
-                gap: 15px;
+                font-weight: bold;
+                font-size: larger;
+            }
 
-                h1 {
-                    display: flex;
-                    flex-direction: column;
-                    height: 10%;
-                    justify-content: end;
-                    width: 100%;
-                    align-items: end;
-                    font-weight: bold;
-                    font-size: larger;
+            .list-element_content {
+                height: 90%;
+                width: 100%;
+                background-color: rgba(255, 255, 255, .2);
+                border-radius: 15px;
+                padding: 10px;
+            }
 
-                    #FS {
-                        background: linear-gradient(135deg, var(--html5color) 24%, transparent 24%, transparent 25%, var(--css3color) 25%, var(--css3color) 49%, transparent 49%, transparent 50%, var(--jscolor) 50%, var(--jscolor) 74%, transparent 74%, transparent 75%, var(--nodecolor) 75%);
-                        background-clip: text;
-                        -webkit-background-clip: text;
-                        color: transparent;
-                        -webkit-text-fill-color: transparent;
-                    }
-
-                    #JS {
-                        color: var(--jscolor);
-                    }
-
+            &#home {
+                #FS {
+                    background: linear-gradient(135deg, var(--html5color) 24%, transparent 24%, transparent 25%, var(--css3color) 25%, var(--css3color) 49%, transparent 49%, transparent 50%, var(--jscolor) 50%, var(--jscolor) 74%, transparent 74%, transparent 75%, var(--nodecolor) 75%);
+                    background-clip: text;
+                    -webkit-background-clip: text;
+                    color: transparent;
+                    -webkit-text-fill-color: transparent;
                 }
 
-                div {
-                    height: 90%;
-                    width: 100%;
-                    background-color: rgba(255, 255, 255, .2);
-                    border-radius: 15px;
-                    padding: 10px;
+                #JS {
+                    color: var(--jscolor);
+                }
 
-                    .anim {
-                        margin: auto;
-                        text-align: justify;
+                span {
+                    &.anim {
                         font-family: 'Courier New', Courier, monospace;
                         background: linear-gradient(var(--txtcolor) 0 0) 0 0;
                         background-size: calc(var(--n) * 1ch) 200%;
                         background-repeat: no-repeat;
-                        animation: typing calc(var(--n) * .05s) linear infinite;
+                        animation: typing calc(var(--n) * .01s) linear;
                         color: #0000;
                         -webkit-background-clip: text;
                         background-clip: text;
                         animation-timing-function: steps(var(--n));
 
                         strong {
-                            font-weight: bolder;text-align: center;
+                            font-weight: bolder;
                         }
 
                         a {
                             color: transparent;
                         }
                     }
+                }
+            }
 
+            &#xp {
 
+                #content-XP {
+                    position: relative;
+                    display: flex;
+                    flex-direction: column;
+
+                    &>.xpBlock {
+                        position: relative;
+                        width: 100%;
+                        height: 20%;
+
+                        &:nth-of-type(even) {
+                            text-align: end;
+                            div{
+                                position: absolute;
+                                right: 0;
+                            }
+                            i {
+                                position: absolute;
+                                left: 0px;
+                                top: 0;
+                            }
+
+                            .xpDetail {
+                                right: 0;
+                            }
+                        }
+
+                        &:nth-of-type(odd) {
+                            i {
+                                position: absolute;
+                                right: 0px;
+                                top: 0;
+                            }
+
+                            .xpDetail {
+                                left: 0;
+                            }
+                        }
+
+                        .xpTitle {
+                            position: relative;
+                            width: 40%;
+                            font-size: .8em;
+
+                            .xpDetail {
+                                position: absolute;
+                                width: 90vw;
+                                background-color: rgba(255, 255, 255, 0.356);
+                                color: #000;
+                                border-radius: 10px;
+                                top: 30px;
+                                padding: 5px;
+                                z-index: 10;
+                                backdrop-filter: blur(10px);
+                            }
+                        }
+                    }
+
+                    #axis{
+                        position: absolute;
+                        left:50%;
+                        transform: translateX(-50%);
+                        width: 5px;
+                        background-color: #fff;
+                        height: 80%;
+                        z-index: 10;
+                        #backpack{
+                            position: absolute;
+                            transform: translateX(calc(-50% + 2.5px));
+                            filter: drop-shadow(0 0 0.75rem crimson);
+                        }
+                    }
+                    .finalBlock {
+                        width: 100%;
+                        height: 20%;
+                        font-size: 2.5em;
+                        text-align: center;
+                        padding-top: 50px;
+                    }
                 }
             }
         }
@@ -186,7 +276,7 @@ main {
 /* The typing effect */
 @keyframes typing {
     from {
-        background-size: 0 200%
+        background-size: 0 200%;
     }
 }
 
