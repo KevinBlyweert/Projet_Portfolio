@@ -221,13 +221,13 @@ const app = {
         linkedInLogoLink.setAttribute("href","www.linkedin.com/in/kevin-blyweert")
         linkedInLogoLink.setAttribute("target","_blank")
         const linkedInLogo = new Image()
-        linkedInLogo.src = "../images/linkedin_logo.png"
+        linkedInLogo.src = "/images/linkedin_logo.png"
         linkedInLogoLink.appendChild(linkedInLogo)
         const gitHubLogoLink = utilities.createElement(logoDiv,"a")
         gitHubLogoLink.setAttribute("href","https://github.com/KevinBlyweert")
         gitHubLogoLink.setAttribute("target","_blank")
         const gitHubLogo = new Image()
-        gitHubLogo.src = "../images/github_logo.png"
+        gitHubLogo.src = "/images/github_logo.png"
         gitHubLogoLink.appendChild(gitHubLogo)
     },
     showTime: () => {
