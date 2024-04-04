@@ -4,18 +4,28 @@ import { skills } from "../data/skills.js";
 import { achievements } from "../data/achievements.js";
 import { RPS } from './rock-paper-scisors.js'
 import { createPlayground } from "./color_tiles.js";
+import { reactModal } from "./reactModal.js";
+import { vueModal } from "./vueModal.js";
+import utilities from "./utilities.js";
 
 const app = {
     openModal: (event) => {
         document.querySelector('.modal').classList.remove('hidden')
         document.querySelector('.overlay').classList.remove('hidden')
         document.querySelector('.modalTitle').textContent = event.target.dataset.name;
+        console.log(event.target.dataset.name)
         switch (event.target.dataset.name) {
             case "Color tiles":
                 createPlayground();
                 break;
             case "Rock Paper Scissors":
                 RPS()
+                break;
+            case "React":
+                reactModal()
+                break;
+            case "VueJS":
+                vueModal()
                 break;
         }
     },
@@ -74,35 +84,50 @@ const app = {
 
         function showXpBlock() {
             const xpBlocks = document.querySelectorAll(".xpBlock");
-            let elementToAppear = 0, imgSrc = "./images/backpack_s.png";
+            let elementToAppear = 0, elementToDisappear = 4, size = "s", sizeToRemove = "";
             const level = (elmnt.offsetTop * 100) / axis.offsetHeight
             switch (true) {
-                case (Math.floor(level) > 90):
+                case (Math.floor(level) >= 90):
                     document.querySelector(".finalBlock").classList.remove("hidden")
-                    imgSrc = "./images/backpack_xl.png"
+                    size = "xl"
                     break;
-                case (Math.floor(level) > 60):
+                case (Math.floor(level) >= 60):
+                    document.querySelector(".finalBlock").classList.add("hidden")
                     elementToAppear = 3;
-                    imgSrc = "./images/backpack_xl.png"
+                    size = "xl"
                     break;
-                case (Math.floor(level) > 40):
+                case (Math.floor(level) >= 40):
                     elementToAppear = 2;
-                    imgSrc = "./images/backpack_l.png"
+                    elementToDisappear = 3;
+                    size = "l"
+                    sizeToRemove = "xl"
                     break;
-                case (Math.floor(level) > 20):
+                case (Math.floor(level) >= 20):
                     elementToAppear = 1;
-                    imgSrc = "./images/backpack_m.png"
+                    elementToDisappear = 2;
+                    size = "m"
+                    sizeToRemove = "l"
                     break;
-                case (Math.floor(level) > 0):
-                    elementToAppear = 0;
-                    imgSrc = "./images/backpack_s.png"
-                    break;
+                case (Math.floor(level) >= 1):
                 default:
+                    elementToAppear = 0;
+                    elementToDisappear = 1;
+                    size = "s"
+                    sizeToRemove = "m"
                     break;
             }
             xpBlocks[elementToAppear].classList.remove("hidden")
-            document.querySelector("#backpack").src = imgSrc
+            xpBlocks[elementToDisappear] && xpBlocks[elementToDisappear].classList.add("hidden")
+            document.querySelector("#backpack").src = `./images/backpack_${size}.png`
+            document.querySelector("#backpack").classList.add(size)
+            sizeToRemove && document.querySelector("#backpack").classList.remove(sizeToRemove)
         }
+    },
+    getRandomInt: (min, max) => {
+        const minCeiled = Math.ceil(min);
+        const maxFloored = Math.floor(max);
+        // The maximum is exclusive and the minimum is inclusive
+        return Math.floor(Math.random() * (maxFloored - minCeiled) + minCeiled);
     },
     fillExperiencesContent: () => {
         const contentXP = document.querySelector('#content-XP');
@@ -139,45 +164,39 @@ const app = {
                 block.classList.toggle("hidden");
             })
         });
-        const finalBlock = document.createElement("div");
-        finalBlock.textContent = "Votre entreprise ?"
-        finalBlock.classList.add("finalBlock", "hidden")
-        contentXP.append(finalBlock)
+        utilities.createElement(contentXP, "div", ["finalBlock", "hidden"], "Votre entreprise?")
     },
     fillFormationContent: () => {
         const contentXP = document.querySelector('#content-formation');
         scolarship.forEach((object) => {
             const block = document.createElement('div')
+            block.classList.add("scolarBlock")
             contentXP.prepend(block)
-            const when = document.createElement('p');
-            when.textContent = `Quand? ${object['start']}`;
-            when.textContent += object['end'] ? ` - ${object['end']}` : '';
-            block.appendChild(when);
-            const what = document.createElement('p');
-            what.textContent = `Quoi? ${object['label']}`;
-            block.appendChild(what);
-            const where = document.createElement('p');
-            where.textContent = `Où? ${object['location']}`;
-            block.appendChild(where);
+            const leftBlock = utilities.createElement(block, "div", ["leftBlock"])
+            const rightBlock = utilities.createElement(block, "div", ["rightBlock"])
+            utilities.createElement(leftBlock, "p", undefined, "Quand ?")
+            utilities.createElement(rightBlock, "p", undefined, `${object['start']} ${object['end'] ? "-" + object['end'] : ""}`)
+            utilities.createElement(leftBlock, "p", undefined, "Quoi ?")
+            utilities.createElement(rightBlock, "p", undefined, object['label'])
+            utilities.createElement(leftBlock, "p", undefined, "Où ?")
+            utilities.createElement(rightBlock, "p", undefined, object['location'])
+
         });
     },
     fillSkillsContent: () => {
         const contentSkills = document.querySelector('#content-skills');
         skills.forEach((object) => {
             for (let key of Object.keys(object)) {
-                const block = document.createElement('div')
-                contentSkills.appendChild(block)
-                const title = document.createElement('div');
-                title.textContent = key;
-                title.style.textTransform = 'uppercase'
-                title.style.textDecoration = 'underline'
-                block.appendChild(title);
-                const skillsDetail = document.createElement('p');
-                // for (let i=0;i<object[key].length;i++){
-                //     skillsDetail.textContent += object[key][i];
-                //     if(i<object[key].length-1){skillsDetail.textContent += ', ';}
-                // }
-                block.appendChild(skillsDetail)
+                const block = utilities.createElement(contentSkills, "div", ["skillBlock"], key);
+                document.createElement('div');
+                block.style.textTransform = 'uppercase'
+                block.style.fontWeight = 'bold'
+                const title = utilities.createElement(block, "div", ["skillCloud"], "", key)
+                const skillList = utilities.createElement(title, "ul", ["skillList"], "", key + "List")
+                for (let i = 0; i < object[key].length; i++) {
+                    const skill = utilities.createElement(skillList, "li", ["skill"], object[key][i])
+                    skill.style = "--size:"+app.getRandomInt(1,6)+";"
+                }
             }
 
         });
@@ -190,11 +209,26 @@ const app = {
             achievements_block.textContent = achievements[i];
             achievements_block.dataset.name = achievements[i];
             contentAchievements.append(achievements_block)
+            const bg = utilities.createElement(achievements_block,"div",["backgroundImage"])
+            bg.dataset.name = achievements[i];
             achievements_block.addEventListener("click", (event) => { app.openModal(event) })
         }
     },
     fillContactContent: () => {
-
+        const contentContact = document.querySelector('#content-contact');
+        const logoDiv = utilities.createElement(contentContact,"div",["contact_logos"])
+        const linkedInLogoLink = utilities.createElement(logoDiv,"a")
+        linkedInLogoLink.setAttribute("href","www.linkedin.com/in/kevin-blyweert")
+        linkedInLogoLink.setAttribute("target","_blank")
+        const linkedInLogo = new Image()
+        linkedInLogo.src = "../images/linkedin_logo.png"
+        linkedInLogoLink.appendChild(linkedInLogo)
+        const gitHubLogoLink = utilities.createElement(logoDiv,"a")
+        gitHubLogoLink.setAttribute("href","https://github.com/KevinBlyweert")
+        gitHubLogoLink.setAttribute("target","_blank")
+        const gitHubLogo = new Image()
+        gitHubLogo.src = "../images/github_logo.png"
+        gitHubLogoLink.appendChild(gitHubLogo)
     },
     showTime: () => {
         const time = document.querySelector('#time');
@@ -218,10 +252,10 @@ const app = {
         app.showTime();
         app.dragElement(document.getElementById('backpack'));
         app.fillExperiencesContent();
-        // app.fillFormationContent();
-        // app.fillSkillsContent();
-        // app.fillRealisationsContent();
-        // app.fillContactContent();
+        app.fillFormationContent();
+        app.fillSkillsContent();
+        app.fillRealisationsContent();
+        app.fillContactContent();
         document.querySelector('.buttonClose').addEventListener('click', app.closeModal)
         document.querySelector('.overlay').addEventListener('click', app.closeModal)
         document.querySelector('ul').addEventListener("scroll", (event) => {

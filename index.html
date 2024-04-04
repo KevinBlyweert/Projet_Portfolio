@@ -13,7 +13,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Calligraffitti&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rubik:wght@600&display=swap"
         rel="stylesheet">
 </head>
 
@@ -36,26 +36,29 @@
         </nav>
     </header>
     <main>
-        <ul>
+        <ul class="list">
             <li id="home" class="list-element">
                 <h1 class="list-element_title">Développeur Web <span id="FS">Fullstack</span> <span
                         id="JS">JavaScript</span></h1>
                 <div class="list-element_content" id="content-home">
-                    <span class="anim" style="--n:520;">Déjà possesseur d'un DEUST IOSI, j'ai choisi, après 10 ans
+                    <span class="anim" style="--n:550;">Déjà possesseur d'un DEUST IOSI, j'ai choisi, après 10 ans
                         passés en logistique,
                         de retourner dans la programmation et devenir développeur web.<br>
                         Mon expérience en tant qu'interlocuteur unique de 350 fournisseurs pour toute question
                         concernant l'activité m'a permis de développer mon relationnel, mon anglais et ma capacité à
                         être efficace en toute circonstance.<br>
-                        J'ai décidé de suivre la formation dispensée par <a href="https://oclock.io/">O'Clock</a> afin de préparer le Titre Professionnel DWWM.<br><br>
-                        <span class="center">Ce titre en poche, je suis désormais un <strong>développeur web certifié</strong></span>.
+                        J'ai décidé de suivre la formation dispensée par <a href="https://oclock.io/">O'Clock</a> afin
+                        de préparer le Titre Professionnel DWWM.<br><br>
+                        <span class="center">Ce titre en poche, je suis désormais un <strong>développeur web
+                                certifié</strong></span>.
                     </span>
                 </div>
             </li>
             <li id="xp" class="list-element">
                 <h1 class="list-element_title">Mon exp&eacute;rience</h1>
                 <div class="list-element_content" id="content-XP">
-                    <span id="axis"><img src="./images/backpack_s.png" alt="backpack to drag for experience" id="backpack" draggable="true"></span>
+                    <span id="axis"><img src="./images/backpack_s.png" alt="backpack to drag for experience"
+                            id="backpack" draggable="true"></span>
                 </div>
             </li>
             <li id="scolarship" class="list-element">
@@ -71,8 +74,8 @@
                 <div class="list-element_content" id="content-achievements"></div>
             </li>
             <li id="contact" class="list-element">
-                <h1 class="list-element_title">Envoie d'en savoir plus? Contactez-moi!</h1>
-                <div class="list-element_content content-contact"></div>
+                <h1 class="list-element_title">Envie d'en savoir plus?<br> - <br>Contactez-moi!</h1>
+                <div class="list-element_content" id="content-contact"></div>
             </li>
         </ul>
     </main>
@@ -89,6 +92,7 @@
         <div id="time" order="2"><span id="date"></span><br><span id="hour"></span></div>
     </footer>
     <div class="overlay hidden"></div>
+    <div class="errorDisplay hidden"></div>
     <script src="js/index.js" type="module"></script>
 </body>
 

@@ -21,6 +21,12 @@ export const scolarship = [
         "start":"2023",
         "end":"2024",
         "label":"Préparation au Titre Professionnel de Développeur Fullstack Web et Web Mobile et obtention du Titre Professionnel en Février 2024",
-        "location":"At home"
+        "location":"Téléprésentiel"
+    },
+    {
+        "start":"2024",
+        "end":null,
+        "label":"Obtention du Titre Professionnel DWWM JavaScript",
+        "location":"Téléprésentiel"
     }
 ]

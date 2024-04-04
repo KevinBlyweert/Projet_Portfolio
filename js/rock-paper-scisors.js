@@ -77,7 +77,7 @@ function createList(player) {
         const elts = document.createElement('li');
         list.append(elts)
         const img = new Image()
-        // img.src=`/images/${item}.png`
+        img.src=`/images/${item}.png`
         img.setAttribute('id',`${item}IMG`); 
         img.setAttribute('alt',`${item} item image.`); 
         img.dataset.name = item

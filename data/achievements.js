@@ -1,1 +1,1 @@
-export const achievements = ['Color tiles','Rock Paper Scissors','React','VueJS']
+export const achievements = ['Rock Paper Scissors','Color tiles','React','VueJS']
