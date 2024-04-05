@@ -118,7 +118,7 @@ const app = {
             }
             xpBlocks[elementToAppear].classList.remove("hidden")
             xpBlocks[elementToDisappear] && xpBlocks[elementToDisappear].classList.add("hidden")
-            document.querySelector("#backpack").src = `./images/backpack_${size}.png`
+            document.querySelector("#backpack").src = `./data/images/backpack_${size}.png`
             document.querySelector("#backpack").classList.add(size)
             sizeToRemove && document.querySelector("#backpack").classList.remove(sizeToRemove)
         }
@@ -221,13 +221,13 @@ const app = {
         linkedInLogoLink.setAttribute("href","www.linkedin.com/in/kevin-blyweert")
         linkedInLogoLink.setAttribute("target","_blank")
         const linkedInLogo = new Image()
-        linkedInLogo.src = "/images/linkedin_logo.png"
+        linkedInLogo.src = "./data/images/linkedin_logo.png"
         linkedInLogoLink.appendChild(linkedInLogo)
         const gitHubLogoLink = utilities.createElement(logoDiv,"a")
         gitHubLogoLink.setAttribute("href","https://github.com/KevinBlyweert")
         gitHubLogoLink.setAttribute("target","_blank")
         const gitHubLogo = new Image()
-        gitHubLogo.src = "/images/github_logo.png"
+        gitHubLogo.src = "./data/images/github_logo.png"
         gitHubLogoLink.appendChild(gitHubLogo)
     },
     showTime: () => {

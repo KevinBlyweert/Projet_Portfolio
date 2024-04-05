@@ -10,11 +10,11 @@ export function reactModal() {
     introLinkAnchor.setAttribute("target", '_blank')
     utilities.createElement(intro, "div", [], "Il s'agit de notre projet de fin de formation, front-end réalisé avec React, et back-end sous NodeJS", "introText")
     const img_front = new Image()
-    img_front.src = `/images/8bits_front.png`
+    img_front.src = `./data/images/8bits_front.png`
     img_front.setAttribute('alt', `8bits Front end image.`);
     modalContent.append(img_front)
     const img_back = new Image()
-    img_back.src = `/images/8bits_API.png`
+    img_back.src = `./data/images/8bits_API.png`
     img_back.setAttribute('alt', `8bits API image.`);
     modalContent.append(img_back)
 }
