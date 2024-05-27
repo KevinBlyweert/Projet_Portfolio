@@ -8,7 +8,7 @@ export function reactModal() {
     const introLinkAnchor = utilities.createElement(introLink, "a", [], "Projet8Bits", "linkProject")
     introLinkAnchor.setAttribute("href", 'https://projet-8bits.vercel.app/')
     introLinkAnchor.setAttribute("target", '_blank')
-    utilities.createElement(intro, "div", [], "Il s'agit de notre projet de fin de formation, front-end réalisé avec React, et back-end sous NodeJS", "introText")
+    utilities.createElement(intro, "div", [], "Il s'agit de notre projet de fin de formation, front-end réalisé avec React, et back-end sous NodeJS, Express et PostgreSQL", "introText")
     const img_front = new Image()
     img_front.src = `./data/images/8bits_front.png`
     img_front.setAttribute('alt', `8bits Front end image.`);

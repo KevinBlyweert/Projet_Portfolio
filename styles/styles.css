@@ -1,13 +1,21 @@
 :root {
-    --bgc: hsl(234 84% 07%);
+    --bgc: #171625;
     --myblue: #209CEE;
-    --txtcolor: #d2d4e9;
+    --txtcolor: #e0dffe;
     --html5color: #DD4B25;
     --css3color: #0975BC;
     --jscolor: #F7E025;
     --nodecolor: #58A149;
-    --font-roboto: "Roboto", sans-serif;
-    --font-rubik: "Rubik", sans-serif;
+    --size-step-0: clamp(1rem, 0.92rem + 0.39vw, 1.25rem);
+    --size-step-1: clamp(1.1875rem, 1.01rem + 0.87vw, 1.75rem);
+    --size-step-2: clamp(1.4375rem, 1.11rem + 1.65vw, 2.5rem);
+    --size-step-3: clamp(1.75rem, 1.19rem + 2.82vw, 3.5625rem);
+    --size-step-4: clamp(1.75rem, 1.15rem + 4.56vw, 5rem);
+    --size-step-5: clamp(2.5rem, 1.08rem + 7.09vw, 7.0625rem);
+    --size-step-6: clamp(3rem, 0.84rem + 10.78vw, 9.9375rem);
+    --titleFont: "Bowlby One", sans-serif;
+    --bodyFont: "Sora", sans-serif;
+    --min-item-size: clamp(10rem, 50vw, 26rem);
 }
 
 * {
@@ -17,12 +25,13 @@
 html,
 body {
     height: 100%;
-    font-family: var(--font-roboto);
+    font-family: var(--bodyFont);
     display: flex;
     flex-direction: column;
     overflow-y: hidden;
     background-color: var(--bgc);
     color: var(--txtcolor);
+    font-size: var(--size-step-0);
 }
 
 body {
@@ -38,6 +47,11 @@ a {
     }
 }
 
+h1 {
+    font-family: var(--titleFont);
+    font-size: 2rem;
+}
+
 header {
     width: 100%;
     padding: 5px;
@@ -49,6 +63,7 @@ header {
         #title {
             display: flex;
             align-items: end;
+            font-family: "Calligraffitti", cursive;
 
             img {
                 height: 45px;
@@ -56,13 +71,10 @@ header {
 
             span {
                 margin-left: 30px;
-                font-size: 2em;
                 text-align: end;
                 color: var(--txtcolor);
             }
 
-            font-family: "Calligraffitti",
-            cursive;
         }
     }
 
@@ -76,7 +88,7 @@ header {
         flex-wrap: nowrap;
         justify-content: space-evenly;
         font-size: .7em;
-        background-color: #1B1F23;
+        background-color: #13131E;
         z-index: 100;
 
         a {
@@ -113,18 +125,29 @@ header {
 
 main {
     height: 93%;
-    padding: 10px;
+    margin-top: 3rem;
+    margin-left: clamp(1rem, 0.73rem + 5vw, 10rem);
+    margin-right: clamp(1rem, 0.73rem + 5vw, 10rem);
 
     .list {
         scroll-behavior: smooth;
         overflow-y: auto;
         scroll-snap-type: y mandatory;
-        height: 100%;
+        height: 90%;
+
+        -ms-overflow-style: none;
+        /* IE and Edge */
+        scrollbar-width: none;
+        /*Firefox*/
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
 
         .list-element {
             scroll-snap-align: start;
             height: 100%;
-
+            margin: 10px 0;
 
             display: flex;
             flex-direction: column;
@@ -135,59 +158,44 @@ main {
             h1 {
                 display: flex;
                 flex-direction: column;
-                height: 10%;
+                height: auto;
                 justify-content: end;
                 width: 100%;
                 align-items: end;
-                font-family: var(--font-rubik);
                 font-weight: 600;
-                font-size: larger;
+                font-size: var(--size-step-4);
                 text-align: right;
             }
 
             .list-element_content {
-                height: 90%;
+                flex-grow: 1;
                 width: 100%;
-                /* background-color: rgba(255, 255, 255, .2);
-                border-radius: 15px;*/
                 padding: 10px;
                 position: relative;
             }
 
             &#home {
-                #FS {
-                    background: linear-gradient(135deg, var(--html5color) 24%, transparent 24%, transparent 25%, var(--css3color) 25%, var(--css3color) 49%, transparent 49%, transparent 50%, var(--jscolor) 50%, var(--jscolor) 74%, transparent 74%, transparent 75%, var(--nodecolor) 75%);
-                    background-clip: text;
-                    -webkit-background-clip: text;
-                    color: transparent;
-                    -webkit-text-fill-color: transparent;
+                .name {
+                    font-family: var(--titleFont);
+                    font-size: var(--size-step-5);
                 }
 
-                #JS {
-                    color: var(--jscolor);
-                }
+                .job {
+                    font-size: var(--size-step-4);
 
-                span {
-                    &.anim {
-                        font-family: 'Courier New', Courier, monospace;
-                        background: linear-gradient(var(--txtcolor) 0 0) 0 0;
-                        background-size: calc(var(--n) * 1ch) 200%;
-                        background-repeat: no-repeat;
-                        animation: typing calc(var(--n) * .01s) linear;
-                        color: #0000;
-                        -webkit-background-clip: text;
+                    #FS {
+                        background: linear-gradient(135deg, var(--html5color) 24%, transparent 24%, transparent 25%, var(--css3color) 25%, var(--css3color) 49%, transparent 49%, transparent 50%, var(--jscolor) 50%, var(--jscolor) 74%, transparent 74%, transparent 75%, var(--nodecolor) 75%);
                         background-clip: text;
-                        animation-timing-function: steps(var(--n));
+                        -webkit-background-clip: text;
+                        color: transparent;
+                        -webkit-text-fill-color: transparent;
+                    }
 
-                        strong {
-                            font-weight: bolder;
-                        }
-
-                        a {
-                            color: transparent;
-                        }
+                    #JS {
+                        color: var(--jscolor);
                     }
                 }
+
             }
 
             &#xp {
@@ -241,8 +249,8 @@ main {
                             .xpDetail {
                                 position: absolute;
                                 width: 90vw;
-                                background-color: rgba(255, 255, 255, 0.356);
-                                color: #000;
+                                background-color: #6E6ADE;
+                                color: var(--txtcolor);
                                 border-radius: 10px;
                                 top: 30px;
                                 padding: 5px;
@@ -256,30 +264,30 @@ main {
                         position: absolute;
                         left: 50%;
                         transform: translateX(-50%);
-                        width: 5px;
+                        width: 50px;
                         background-color: var(--txtcolor);
                         height: 80%;
                         z-index: 10;
 
                         #backpack {
                             position: absolute;
-                            transform: translateX(calc(-50% + 2.5px)) scale(.7);
-                            filter: drop-shadow(0 0 0.75rem var(--myblue));
+                            transform: scale(.7);
+                            filter: drop-shadow(0 0 0.75rem #5B5BD6);
 
                             &.s {
-                                transform: translateX(calc(-50% + 2.5px)) scale(.7);
+                                transform: scale(.7);
                             }
 
                             &.m {
-                                transform: translateX(calc(-50% + 2.5px)) scale(.9);
+                                transform: scale(.9);
                             }
 
                             &.l {
-                                transform: translateX(calc(-50% + 2.5px)) scale(1.1);
+                                transform: scale(1.1);
                             }
 
                             &.xl {
-                                transform: translateX(calc(-50% + 2.5px)) scale(1.3);
+                                transform: scale(1.3);
                             }
                         }
                     }
@@ -330,7 +338,7 @@ main {
                     }
 
                     &:not(:last-child) {
-                        border-bottom: 1px dotted var(--txtcolor);
+                        border-bottom: 1px dotted #B1A9FF;
                     }
 
                     .leftBlock {
@@ -362,7 +370,7 @@ main {
                         width: calc(100% - 20px);
 
                         &:first-child {
-                            border-bottom: 2px solid var(--myblue);
+                            border-bottom: 2px solid #B1A9FF;
                         }
                     }
 
@@ -411,17 +419,19 @@ main {
 
             &#achievements {
                 #content-achievements {
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: space-evenly;
+                    display: grid;
+                    justify-content: center;
+                    grid-template-columns: repeat(auto-fill, minmax(var(--min-item-size), 1fr));
+                    grid-template-rows: repeat(4, 1fr);
+                    gap: clamp(1rem, 1.5rem, 2rem);
+                    justify-content: center;
 
                     .achievements {
-                        height: 20%;
-                        border: 1px solid var(--txtcolor);
+                        border: 1px solid #B1A9FF;
                         border-radius: 15px;
                         display: flex;
-                        flex-direction: column;
                         justify-content: center;
+                        align-items: center;
                         font-size: 2em;
                         font-weight: bold;
                         text-align: center;
@@ -432,7 +442,7 @@ main {
 
                         &:hover {
                             .backgroundImage {
-                                background-color: var(--txtcolor);
+                                background-color: #B1A9FF;
                             }
                         }
 
@@ -479,7 +489,7 @@ main {
             }
 
             &#contact {
-                .contact_logos{
+                .contact_logos {
                     height: 10%;
                     display: flex;
                     flex-direction: row;
@@ -487,11 +497,13 @@ main {
                     align-items: center;
                     background-color: rgba(255, 255, 255, .2);
                     border-radius: 15px;
-                    a{
+
+                    a {
                         width: 50px;
                         height: 50px;
                     }
-                    img{
+
+                    img {
                         height: 100%;
                         width: 100%;
                     }
@@ -513,7 +525,6 @@ main {
     right: 0;
     top: 0;
     height: 55px;
-    width: 110px;
     font-weight: bold;
     font-size: 1em;
     display: flex;
@@ -532,13 +543,14 @@ main {
     flex-direction: column;
     justify-content: center;
     gap: 0.4rem;
-    width: calc(100% - 5vh);
+    width: clamp(15rem, calc(100% - 5vh), 50rem);
     height: calc(100% - 5vh);
     padding: 1.3rem;
     min-height: 250px;
     position: absolute;
     top: 2.5vh;
-    left: 2.5vh;
+    left: 50%;
+    transform: translate(-50%);
     background-color: #eee;
     border: 1px solid #ddd;
     border-radius: 15px;
@@ -574,6 +586,9 @@ main {
 
         .modalContent {
             height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
 
             &.RPS {
                 display: flex;
@@ -698,6 +713,7 @@ main {
 
                 #sectionBoard {
                     width: 100%;
+                    max-width: 520px;
 
                     #board {
                         margin-top: 50px;
@@ -731,6 +747,7 @@ main {
                 }
 
                 img {
+                    max-width: 580px;
                     width: 100%;
                     margin-top: 50px;
                 }
