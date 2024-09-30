@@ -218,7 +218,7 @@ const app = {
         const contentContact = document.querySelector('#content-contact');
         const logoDiv = utilities.createElement(contentContact,"div",["contact_logos"])
         const linkedInLogoLink = utilities.createElement(logoDiv,"a")
-        linkedInLogoLink.setAttribute("href","www.linkedin.com/in/kevin-blyweert")
+        linkedInLogoLink.setAttribute("href","https://linkedin.com/in/kevin-blyweert")
         linkedInLogoLink.setAttribute("target","_blank")
         const linkedInLogo = new Image()
         linkedInLogo.src = "./data/images/linkedin_logo.png"
