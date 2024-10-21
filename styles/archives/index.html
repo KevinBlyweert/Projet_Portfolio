@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My portfolio</title>
+    <link rel="icon" href="./data/images/favicon.ico">
+    <link rel="stylesheet" href="./styles/reset.css">
+    <link rel="stylesheet" href="./styles/styles.css">
+    <script src="https://kit.fontawesome.com/cb84e3d815.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bowlby+One&family=Calligraffitti&family=Sora:wght@100..800&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <div id="headTitle">
+            <a href="">
+                <h1 id="title"><img src="./data/images/favicon.ico" alt="favicon"><span>Hello there...</span>
+                </h1>
+            </a>
+        </div>
+        <nav>
+            <a href="#home" class="nav_item selected"><span>Accueil</span><i class="fa-solid fa-house-chimney"></i></a>
+            <a href="#xp" class="nav_item"><span>Exp&eacute;rience</span><i class="fa-solid fa-briefcase"></i></a>
+            <a href="#scolarship" class="nav_item"><span>Formation</span><i class="fa-solid fa-graduation-cap"></i></a>
+            <a href="#skills" class="nav_item"><span>Comp&eacute;tences</span><i class="fa-solid fa-gears"></i></a>
+            <a href="#achievements" class="nav_item"><span>R&eacute;alisations</span><i
+                    class="fa-solid fa-code"></i></a>
+            <a href="#contact" class="nav_item"><span>Contact</span><i class="fa-solid fa-paper-plane"></i></a>
+        </nav>
+    </header>
+    <main>
+        <ul class="list">
+            <li id="home" class="list-element">
+                <h1 class="list-element_title"></h1>
+                <div class="list-element_content" id="content-home">
+                    <div class="name">Kévin BLYWEERT</div>
+                    <div class="job">Développeur Web <span id="FS">Fullstack</span> <span id="JS">JavaScript</span></div>
+                </div>
+            </li>
+            <li id="xp" class="list-element">
+                <h1 class="list-element_title">Mon exp&eacute;rience</h1>
+                <div class="list-element_content" id="content-XP">
+                    <span id="axis"><img src="./data/images/backpack_s.png" alt="backpack to drag for experience"
+                            id="backpack" draggable="true"></span>
+                </div>
+            </li>
+            <li id="scolarship" class="list-element">
+                <h1 class="list-element_title">Ma formation</h1>
+                <div class="list-element_content" id="content-formation"></div>
+            </li>
+            <li id="skills" class="list-element">
+                <h1 class="list-element_title">Mes comp&eacute;tences</h1>
+                <div class="list-element_content" id="content-skills"></div>
+            </li>
+            <li id="achievements" class="list-element">
+                <h1 class="list-element_title">Quelques r&eacute;alisations</h1>
+                <div class="list-element_content" id="content-achievements"></div>
+            </li>
+            <li id="contact" class="list-element">
+                <h1 class="list-element_title">Envie d'en savoir plus?
+                    <br> - <br>Contactez-moi!
+                </h1>
+                <div class="list-element_content" id="content-contact"></div>
+            </li>
+        </ul>
+    </main>
+    <div class="modal hidden">
+        <div class="content">
+            <div class="modalHead">
+                <h1 class="modalTitle"></h1>
+                <div class="buttonClose">X</div>
+            </div>
+            <div class="modalContent"></div>
+        </div>
+    </div>
+    <footer>
+        <div id="time" order="2"><span id="date"></span><br><span id="hour"></span></div>
+    </footer>
+    <div class="overlay hidden"></div>
+    <div class="errorDisplay hidden"></div>
+    <script src="js/index.js" type="module"></script>
+</body>
+
+</html>

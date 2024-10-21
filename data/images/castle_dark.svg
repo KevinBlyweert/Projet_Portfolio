@@ -1,0 +1,30 @@
+<svg width="256px" height="256px" viewBox="0 0 36.00 36.00" xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--twemoji"
+    preserveAspectRatio="xMidYMid meet" fill="#000000" stroke="#000000" stroke-width="0.10800000000000001">
+    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#CCCCCC" stroke-width="0.072">
+    </g>
+    <g id="SVGRepo_iconCarrier">
+        <path fill="#111927" d="M4 17h28v19H4z"></path>
+        <path fill="#111927" d="M6 13h23v5H6z"></path>
+        <path fill="#111927" d="M1 12v22a2 2 0 0 0 2 2h4V12H1zm28 0v24h4a2 2 0 0 0 2-2V12h-6z"></path>
+        <path fill="#111927" d="M14 22h8v11h-8z"></path>
+        <path fill="#111927"
+            d="M22 19c-.295 0-.558.391-.74 1h-6.52c-.183-.609-.445-1-.74-1c-.552 0-1 1.344-1 3c0 1.657.448 3 1 3s1-1.343 1-3h6c0 1.657.447 3 1 3s1-1.343 1-3c0-1.656-.447-3-1-3z">
+        </path>
+        <path fill="#f3b33b"
+            d="M3 17h2v2H3zm6 3h2v2H9zm16 0h2v2h-2zM9 24h2v2H9zm16 0h2v2h-2zM3 21h2v2H3zm28-4h2v2h-2zm0 4h2v2h-2z">
+
+            <animate attributeType="XML" attributeName="fill" begin="0s" dur="1s" repeatCount="indefinite"
+                values="#f3b33b;#eb9f12;#f3b33b" />
+
+        </path>
+        <path fill="#111927" d="M13 22h10v4H13z"></path>
+        <path fill="#111927" d="M18 26a2 2 0 0 0-2 2v5h4v-5a2 2 0 0 0-2-2z"></path>
+        <path fill="#111927" d="M12 33h12v3H12z"></path>
+        <path fill="#111927" d="M1 12h6S5 4 4 4s-3 8-3 8zm28 0h6s-2-8-3-8s-3 8-3 8z"></path>
+        <path fill="#111927"
+            d="M8 14a1 1 0 0 1-1 1H1a1 1 0 0 1 0-2h6a1 1 0 0 1 1 1zm28 0a1 1 0 0 1-1 1h-6a1 1 0 1 1 0-2h6a1 1 0 0 1 1 1z">
+        </path>
+    </g>
+</svg>

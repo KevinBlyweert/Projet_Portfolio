@@ -14,12 +14,17 @@ export default {
             elementTemplate.textContent = text
         }
         if (idName != "") {
-            elementTemplate.setAttribute("id",idName)
+            elementTemplate.setAttribute("id", idName)
         }
         if (classNames.length != 0) {
             classNames.forEach(className => elementTemplate.classList.add(className))
         }
         parentElement.appendChild(elementTemplate)
         return elementTemplate
+    },
+    randomNumber: (min, max) => {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min + 1)) + min;
     }
 }

@@ -1,7 +1,7 @@
 import utilities from "./utilities.js";
 
-export function reactModal() {
-    const modalContent = document.querySelector('.modalContent')
+export function reactModal(parentClass) {
+    const modalContent = document.querySelector('.' + parentClass)
     modalContent.classList.add('React');
     const intro = utilities.createElement(modalContent, "div", ["intro"])
     const introLinkDiv = utilities.createElement(intro, "div", [], "", "introLink")

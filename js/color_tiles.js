@@ -2,12 +2,12 @@ import utilities from "./utilities.js";
 const inputValue = 4, minValue = 1, maxValue = 15, colors = ["#000", "#fff", "#0FF", "#0F0", "#F00", "#F0F", "#00F"];
 let colorBoard = undefined, sectionBoard = undefined, playBoard = undefined;
 
-export function createPlayground() {
-    const modalContent = document.querySelector('.modalContent')
+export function createPlayground(parentClass) {
+    const modalContent = document.querySelector('.' + parentClass)
     modalContent.classList.add('ColorTiles');
     const sizes = utilities.createElement(modalContent, "div", ["sizes"])
-    const label = utilities.createElement(sizes,"label",[],"Dimensions (lxL) (max. 15)")
-    label.setAttribute("for","boxesInput")
+    const label = utilities.createElement(sizes, "label", [], "Dimensions (lxL) (max. 15)")
+    label.setAttribute("for", "boxesInput")
     const horizontalInput = utilities.createElement(sizes, "input", ["colorInputValue"], "", "boxesInput")
     horizontalInput.type = "number"
     horizontalInput.defaultValue = inputValue
