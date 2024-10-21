@@ -335,7 +335,7 @@ button {
 .panel {
     position: absolute;
     width: 100vw;
-    height: 100vh;
+    height: 100svh;
     background-color: var(--bg-color, var(--color-lightmode));
     display: flex;
     flex-direction: column;
