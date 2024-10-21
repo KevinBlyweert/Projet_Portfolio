@@ -42,7 +42,7 @@ const app = {
         achievements.forEach(achievement => {
             const workItem = utilities.createElement(workContent, "li", ["flex", "workItem"]);
             const img = utilities.createElement(workItem, "img", []);
-            img.src = `../data/images/${achievement.toLowerCase().replaceAll(" ", "_")}.png`
+            img.src = `./data/images/${achievement.toLowerCase().replaceAll(" ", "_")}.png`
             utilities.createElement(workItem, "p", [], achievement)
             workItem.addEventListener("click", () => {
                 const itemDetail = document.querySelector(".itemDetail")
